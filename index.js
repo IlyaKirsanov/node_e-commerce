@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cookieSession = require('cookie-session');
 const authRouter = require('./routes/admin/auth')
+const productsRouter = require('./routes/admin/products')
 const app = express();
 
 app.use(express.static('public'))
@@ -13,6 +14,7 @@ app.use(cookieSession({
 }));
 
 app.use(authRouter);
+app.use(productsRouter);
 
 app.listen(3300, ()=>{
   console.log('Listening 3300')
